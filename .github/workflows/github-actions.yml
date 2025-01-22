@@ -30,31 +30,10 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://jsonplaceholder.typicode.com/posts'
-          method: 'GET'
+          url: 'https://test-executor-staging-817077646276.us-central1.run.app/execute'
+          method: 'POST'
           customHeaders: '{"x-access-token": ${{ secrets.TOKEN }}}'
 
       - name: fjogeleit response
         run: |
           echo ${{ steps.myRequest.outputs.response }}
-          echo ${{ steps.myRequest.outputs.headers }}
-          echo ${{ steps.myRequest.outputs.status }}
-
-      # - name: muhfaris API call
-      #   id: api-request
-      #   uses: muhfaris/request-action@v0.1.2
-      #   with:
-      #     url: 'https://jsonplaceholder.typicode.com/posts'
-      #     headers: |
-      #       {
-      #         "x-access-token": ${{ secrets.TOKEN }}
-      #       }
-      #     method: GET
-    
-      # - name: muhfaris response status
-      #   run: |
-      #     echo "Response Status: ${{ steps.api-request.outputs.response-status }}"
-
-      # - name: muhfaris response
-      #   run: |
-      #     echo "Response Data: ${{ steps.api-request.outputs.response-data }}"
