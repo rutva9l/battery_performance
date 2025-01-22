@@ -31,7 +31,7 @@ jobs:
         with:
           url: 'https://jsonplaceholder.typicode.com/posts'
           method: 'GET'
-          headers: |
+          customHeaders: |
             {
               "x-access-token": ${{ secrets.TOKEN }}
             }
@@ -41,7 +41,6 @@ jobs:
           echo ${{ steps.myRequest.outputs.response }}
           echo ${{ steps.myRequest.outputs.headers }}
           echo ${{ steps.myRequest.outputs.status }}
-          echo ${{ fromJson(steps.myRequest.outputs.response).field_you_want_to_access }}
 
       # - name: muhfaris API call
       #   id: api-request
