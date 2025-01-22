@@ -36,21 +36,28 @@ jobs:
               "x-access-token": ${{ secrets.TOKEN }}
             }
 
-      - name: muhfaris API call
-        id: api-request
-        uses: muhfaris/request-action@v0.1.2
-        with:
-          url: 'https://jsonplaceholder.typicode.com/posts'
-          headers: |
-            {
-              "x-access-token": ${{ secrets.TOKEN }}
-            }
-          method: GET
-    
-      - name: Show API Response Status
+      - name: fjogeleit response
         run: |
-          echo "Response Status: ${{ steps.api-request.outputs.response-status }}"
+          echo ${{ steps.myRequest.outputs.response }}
+          echo ${{ steps.myRequest.outputs.headers }}
+          echo ${{ steps.myRequest.outputs.status }}
+          echo ${{ fromJson(steps.myRequest.outputs.response).field_you_want_to_access }}
 
-      - name: Show API Response Data
-        run: |
-          echo "Response Data: ${{ steps.api-request.outputs.response-data }}"
+      # - name: muhfaris API call
+      #   id: api-request
+      #   uses: muhfaris/request-action@v0.1.2
+      #   with:
+      #     url: 'https://jsonplaceholder.typicode.com/posts'
+      #     headers: |
+      #       {
+      #         "x-access-token": ${{ secrets.TOKEN }}
+      #       }
+      #     method: GET
+    
+      # - name: muhfaris response status
+      #   run: |
+      #     echo "Response Status: ${{ steps.api-request.outputs.response-status }}"
+
+      # - name: muhfaris response
+      #   run: |
+      #     echo "Response Data: ${{ steps.api-request.outputs.response-data }}"
