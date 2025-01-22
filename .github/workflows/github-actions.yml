@@ -27,6 +27,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: fjogeleit API call
+        id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://jsonplaceholder.typicode.com/posts'
