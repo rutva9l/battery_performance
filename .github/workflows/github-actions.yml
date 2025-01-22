@@ -12,7 +12,6 @@ jobs:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: echo "🔎 The name of user is ${{ github.actor }} and the user ID is ${{ github.actor_id }}."
-      - run: echo "🔎 The secret github token is ${{ secrets.GITHUB_TOKEN }} and ${{ secrets.TOKEN }}"
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
@@ -39,7 +38,7 @@ jobs:
 
       - name: muhfaris API call
         id: api-request
-        uses: muhfaris/request-action@v1
+        uses: muhfaris/request-action@v0.1.2
         with:
           url: 'https://jsonplaceholder.typicode.com/posts'
           headers: |
