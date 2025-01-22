@@ -29,10 +29,12 @@ jobs:
       - name: fjogeleit API call
         id: myRequest
         uses: fjogeleit/http-request-action@v1
+        env:
+          API_KEY: ${{ secrets.TOKEN }}
         with:
           url: 'https://test-executor-staging-817077646276.us-central1.run.app/execute'
           method: 'POST'
-          customHeaders: '{"x-access-token": ${{ secrets.TOKEN }}}'
+          customHeaders: '{"x-access-token": $API_KEY}'
 
       - name: fjogeleit response
         run: |
