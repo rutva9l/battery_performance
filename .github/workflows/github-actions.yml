@@ -34,7 +34,7 @@ jobs:
         with:
           url: 'https://test-executor-staging-817077646276.us-central1.run.app/execute'
           method: 'POST'
-          customHeaders: '{"x-access-token": $API_KEY}'
+          customHeaders: '{"x-access-token": "$API_KEY"}'
 
       - name: fjogeleit response
         run: |
