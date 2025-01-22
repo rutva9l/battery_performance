@@ -31,10 +31,7 @@ jobs:
         with:
           url: 'https://jsonplaceholder.typicode.com/posts'
           method: 'GET'
-          customHeaders: |
-            {
-              "x-access-token": ${{ secrets.TOKEN }}
-            }
+          customHeaders: '{"x-access-token": ${{ secrets.TOKEN }}}'
 
       - name: fjogeleit response
         run: |
